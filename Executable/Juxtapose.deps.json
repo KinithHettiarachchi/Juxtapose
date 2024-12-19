@@ -1,0 +1,86 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Juxtapose/1.0.0": {
+        "dependencies": {
+          "Microsoft.Office.Interop.Excel": "15.0.4795.1001",
+          "SharpSvn": "1.14003.290"
+        },
+        "runtime": {
+          "Juxtapose.dll": {}
+        }
+      },
+      "Microsoft.Office.Interop.Excel/15.0.4795.1001": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Office.Interop.Excel.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4795.1000"
+          }
+        }
+      },
+      "SharpSvn/1.14003.290": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/lib/netcoreapp/Ijwhost.dll": {
+            "rid": "win-arm64",
+            "assetType": "runtime",
+            "fileVersion": "3.100.3222.56520"
+          },
+          "runtimes/win-arm64/lib/netcoreapp/SharpSvn.dll": {
+            "rid": "win-arm64",
+            "assetType": "runtime",
+            "assemblyVersion": "1.14003.290.0",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/lib/netcoreapp/Ijwhost.dll": {
+            "rid": "win-x64",
+            "assetType": "runtime",
+            "fileVersion": "3.100.3222.56520"
+          },
+          "runtimes/win-x64/lib/netcoreapp/SharpSvn.dll": {
+            "rid": "win-x64",
+            "assetType": "runtime",
+            "assemblyVersion": "1.14003.290.0",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/lib/netcoreapp/Ijwhost.dll": {
+            "rid": "win-x86",
+            "assetType": "runtime",
+            "fileVersion": "3.100.3222.56520"
+          },
+          "runtimes/win-x86/lib/netcoreapp/SharpSvn.dll": {
+            "rid": "win-x86",
+            "assetType": "runtime",
+            "assemblyVersion": "1.14003.290.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Juxtapose/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Office.Interop.Excel/15.0.4795.1001": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cuvqi/U5MYSM0gvR2l90q0m/urRgmg69EiwP5VWp1RcaJ0YT5G26Va5LaOZ3KJFc22FNihS5CUjeePUp2YpGQA==",
+      "path": "microsoft.office.interop.excel/15.0.4795.1001",
+      "hashPath": "microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512"
+    },
+    "SharpSvn/1.14003.290": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6J9+EEzNPeIN97uCUcc+/PC2Vz8KfP6qDfsOch8h7sH3JHd2Eq1vyPKoQU/qQQaNLPhNUDmBP9yZF/W+WhrqIg==",
+      "path": "sharpsvn/1.14003.290",
+      "hashPath": "sharpsvn.1.14003.290.nupkg.sha512"
+    }
+  }
+}
