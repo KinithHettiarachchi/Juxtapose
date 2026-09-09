@@ -2001,8 +2001,38 @@ namespace Juxtapose
 
         private async void btnImport_Click(object sender, EventArgs e)
         {
-            GridViewImporter importer = new GridViewImporter();
-            await importer.ImportTSVToGridView(gridView);
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "TSV files (*.tsv)|*.tsv|All files (*.*)|*.*" })
+            {
+                if (ofd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                string path = ofd.FileName;
+                string[] lines = await Task.Run(() => File.ReadAllLines(path));
+
+                if (lines.Length == 0)
+                    return;
+
+                // Parse header
+                string[] headers = lines[0].Split('\t');
+
+                gridView.Columns.Clear();
+                foreach (var h in headers) gridView.Columns.Add(h, h);
+                gridView.Rows.Clear();
+
+                // Add rows
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    string[] cells = lines[i].Split('\t');
+                    // Ensure number of cells matches columns (pad/truncate as needed)
+                    if (cells.Length < headers.Length)
+                        cells = cells.Concat(Enumerable.Repeat(string.Empty, headers.Length - cells.Length)).ToArray();
+                    else if (cells.Length > headers.Length)
+                        cells = cells.Take(headers.Length).ToArray();
+
+                    gridView.Rows.Add(cells);
+                }
+            }
+
             LoadUsersFromRevisions();
         }
 
