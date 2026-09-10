@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "xhhDXnaQt/E=",
+  "success": true,
+  "projectFilePath": "D:\\Development\\GitHub\\Juxtapose\\Juxtapose\\Juxtapose.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\KHettiarachchi\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1001\\microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512",
+    "C:\\Users\\KHettiarachchi\\.nuget\\packages\\microsoft.web.webview2\\1.0.2903.40\\microsoft.web.webview2.1.0.2903.40.nupkg.sha512",
+    "C:\\Users\\KHettiarachchi\\.nuget\\packages\\sharpsvn\\1.14003.290\\sharpsvn.1.14003.290.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Juxtapose</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="tab-control">
+    <div class="tab-headers">
+      <button class="tab-header active" data-tab="tabConfiguration">Configuration</button>
+      <button class="tab-header" data-tab="tabAnalyzer">Anayzer</button>
+    </div>
+
+    <!-- Configuration Tab -->
+    <div id="tabConfiguration" class="tab-page active">
+      <div class="group-box" id="groupBox1">
+        <label for="txtSVNRoot" class="lbl-svnroot">SVN Root</label>
+        <input type="text" id="txtSVNRoot" value="svn://svnserver" title="SVN root path. i.e. svn://svnserver" />
+        <button id="btnLoadSVN" title="Load SVN hierarchy">Load</button>
+
+        <div class="tree-container">
+          <div class="tree-wrapper">
+            <div class="tree" id="treeLeft" title="Select left (old) version"></div>
+          </div>
+          <div class="tree-wrapper">
+            <div class="tree" id="treeRight" title="Select right (new) version"></div>
+          </div>
+          <div class="panel1" id="panel1">
+            <label for="txtWinmerge">WinMerge</label>
+            <input type="text" id="txtWinmerge" value="C:\Program Files\WinMerge" title="Path to WinMerge directory. i.e. C:\Program Files\WinMerge" />
+
+            <label for="txtSVN">TortoiseSVN</label>
+            <input type="text" id="txtSVN" value="C:\Program Files\TortoiseSVN" title="Path to TortoiseSVN. i.e. C:\Program Files\TortoiseSVN" />
+
+            <label for="txtExtensions" class="lbl-filetypes">File Types</label>
+            <input type="text" id="txtExtensions" value="java" title="Specify comma separated list of file extenstions to use. i.e. java,ts" />
+          </div>
+        </div>
+
+        <div class="path-row">
+          <input type="text" id="txtLeft" placeholder="Left path" title="Path of the left branch to analyze" />
+          <input type="text" id="txtRight" placeholder="Right path" title="Path of the right branch to analyze" />
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button id="btnAnalyze" title="Start analysis process">Analyze</button>
+        <progress id="progressBar1" value="0" max="100" title="Analysis prgress"></progress>
+      </div>
+
+      <textarea id="txtLog" readonly title="Log"></textarea>
+    </div>
+
+
+    <!-- Analyzer Tab -->
+    <div id="tabAnalyzer" class="tab-page">
+      <label id="label1" for="drpUser">Author</label>
+      <select id="drpUser" title="Select the author to filter">
+        <option>All Users</option>
+      </select>
+
+      <div class="filter-checks">
+        <label><input type="checkbox" id="chkAdded" checked /> ADDED</label>
+        <label><input type="checkbox" id="chkDeleted" checked /> DELETED</label>
+        <label><input type="checkbox" id="chkModified" checked /> MODIFIED</label>
+        <label><input type="checkbox" id="chkIdentical" checked /> IDENTICAL</label>
+        <label><input type="checkbox" id="chkMoved" checked /> MOVED</label>
+      </div>
+
+      <button id="btnFilter" title="Apply filters">Filter</button>
+      <button id="btnBackup" title="Backup difference  analysis to a TSV file">Backup...</button>
+      <button id="btnImport" title="Restore difference  analysis from an existing TSV file">Restore...</button>
+      <label class="chk-autoscroll"><input type="checkbox" id="chkAutoScroll" checked title="Auto scroll the grid view to bottom upon adding a new line" /> Auto scroll</label>
+
+      <div class="grid-wrapper">
+        <table id="gridView">
+          <thead>
+            <tr>
+              <th>STATUS</th>
+              <th>LEFT</th>
+              <th>RIGHT</th>
+              <th>ADDED</th>
+              <th>DELETED</th>
+              <th>MODIFIED</th>
+              <th>TOTAL</th>
+              <th>CHANGE%</th>
+              <th>REVISIONS</th>
+            </tr>
+          </thead>
+          <tbody id="gridViewBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context menu -->
+  <ul id="contextMenu" class="context-menu">
+    <li data-action="compareSVN">Compare with SVN...</li>
+    <li data-action="showSvnDiff">Show SVN Diff...</li>
+    <li data-action="compareWinMerge">Compare with WinMerge...</li>
+    <li data-action="showSvnLog">Show SVN Log...</li>
+    <li class="separator"></li>
+    <li data-action="exportExcel">Export to Excel...</li>
+    <li data-action="exportHtml">Export to HTML...</li>
+    <li data-action="exportTsv">Export to TSV...</li>
+    <li data-action="exportSummary">Export Summary...</li>
+  </ul>
+
+  <!-- Revision popup used by exported HTML reports is inline in export service; not needed here -->
+
+  <script src="app.js"></script>
+</body>
+</html>
